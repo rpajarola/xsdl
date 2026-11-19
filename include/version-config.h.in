@@ -1,0 +1,12 @@
+/* version-config.h.in: vendor identification of the X server. */
+
+#ifndef _VERSION_CONFIG_H_
+#define _VERSION_CONFIG_H_
+
+#undef VENDOR_NAME
+#undef VENDOR_NAME_SHORT
+#undef VENDOR_RELEASE
+#undef VENDOR_MAN_VERSION
+#undef VENDOR_WEB
+
+#endif /* _VERSION_CONFIG_H_ */

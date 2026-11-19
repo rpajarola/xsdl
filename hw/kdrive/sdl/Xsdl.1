@@ -1,0 +1,50 @@
+.TH XSDL 1 "November 2026" "xsdl" "User Commands"
+.SH NAME
+Xsdl \- X server that renders into an SDL window
+.SH SYNOPSIS
+.B Xsdl
+.RI [ :display ]
+.RI [ option ...]
+.SH DESCRIPTION
+.B Xsdl
+is a kdrive X server that draws into an SDL2 window instead of a display
+device. Keyboard and mouse input come from that window. It is useful for
+showing X clients from old systems or emulated machines on a desktop that
+has no X server of its own.
+.PP
+The window can be resized; the X screen keeps its size and is scaled to fit.
+The screen depth may be 1, 8 (PseudoColor), 15, 16 or 24.
+.SH OPTIONS
+In addition to the standard X server options (see
+.BR Xserver (1)):
+.TP
+.BI \-screen " WIDTHxHEIGHT[xDEPTH]"
+Screen size and depth. The default is 1024x768x24.
+.TP
+.BI \-zoom " n"
+Make the window initially
+.I n
+times the screen size.
+.TP
+.B \-fullscreen
+Run in a fullscreen window.
+.TP
+.BI \-title " title"
+Set the window title. The default is "Xsdl :\fIdisplay\fP".
+.TP
+.B \-host\-cursor
+Show the host cursor over the window as well as the X cursor.
+.TP
+.B \-listen tcp
+Accept TCP connections, e.g. from other machines.
+.SH KEYBOARD
+SDL scancodes are translated to evdev keycodes, so the default XKB rules
+are evdev with a pc105 model and the us layout; use
+.B \-xkb-layout
+and related options to change them. On macOS, Option is Alt and Command is
+Super.
+.SH NOTES
+Closing the window terminates the server.
+.SH "SEE ALSO"
+.BR Xserver (1),
+.BR Xephyr (1)
